@@ -7,6 +7,7 @@ namespace Routing;
 class Router
 {
     private $routes;
+
     private function __construct(Array $routes)
     {
         $this->routes = $routes;
@@ -36,7 +37,6 @@ class Router
         }
         $match->status = false;
         return $match;
-
     }
 
     private function generateExpresion($url) : string
