@@ -15,6 +15,13 @@ final class RouterTest extends TestCase
     /** @var string */
     private $uri;
 
+    public function tearDown() : void
+    {
+        parent::tearDown();
+        $this->router = null;
+        $this->uri = null;
+    }
+
     /** @test */
     public function ShouldCreateRouterObject()
     {
@@ -30,7 +37,7 @@ final class RouterTest extends TestCase
     {
         $arrayUrls = array();
         $router = Router::create($arrayUrls);
-        $this->assertFalse($router);
+        $this->assertNull($router);
     }
 
     /** @test */
@@ -72,7 +79,7 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldBeReturnUriMatch(){
+    public function ShouldReturnUriMatch(){
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
@@ -88,6 +95,34 @@ final class RouterTest extends TestCase
         $router = Router::create($arrayUrls);
         $match = $router->match("/get/javier/100");
         $this->assertSame("/get/{name}/{id}",$match->uri);
+    }
+
+    /** @test */
+    public function ShouldReturnIdUriMatch(){
+        $arrayUrls = array(
+            "/get/{id}",
+            "/post/{id}/{name}",
+            "/put/{id}",
+            "/delete/{id}",
+            "/get/{id}/{id}",
+        );
+        $router = Router::create($arrayUrls);
+        $match = $router->match("/post/400/camilo");
+        $this->assertSame(1,$match->id);
+    }
+
+    /** @test */
+    public function ShouldReturnDifferentIdUriMatch(){
+        $arrayUrls = array(
+            "/get/{id}",
+            "/post/{id}/{name}",
+            "/put/{id}",
+            "/delete/{id}",
+            "/get/{id}/{id}",
+        );
+        $router = Router::create($arrayUrls);
+        $match = $router->match("/put/400");
+        $this->assertNotSame(5,$match->id);
     }
 
 }

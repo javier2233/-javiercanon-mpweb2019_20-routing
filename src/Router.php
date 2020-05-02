@@ -12,12 +12,12 @@ class Router
         $this->routes = $routes;
     }
 
-    public function create(Array $routes) : Router
+    public function create(Array $routes) : ?Router
     {
         if(!empty($routes)){
             return new self($routes);
         }
-        return false;
+        return null;
     }
 
     public function match($uri): ?Object
