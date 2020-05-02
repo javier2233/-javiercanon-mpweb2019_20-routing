@@ -1,0 +1,31 @@
+{
+    "name": "jcanon/routing",
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Routing\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RoutingTest\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Javier Canon",
+            "email": "javiercanonguzman@gmail.com"
+        }
+    ],
+    "scripts": {
+        "phpunit": "phpunit --configuration phpunit.xml",
+        "test": [
+            "phpunit --configuration phpunit.xml"
+        ]
+    }
+}
