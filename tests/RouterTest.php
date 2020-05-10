@@ -41,7 +41,8 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldBeMatch(){
+    public function ShouldBeMatch()
+    {
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
@@ -60,7 +61,8 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldBeDontMatch(){
+    public function ShouldBeDontMatch()
+    {
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
@@ -79,7 +81,8 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldReturnUriMatch(){
+    public function ShouldReturnUriMatch()
+    {
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
@@ -98,7 +101,8 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldReturnIdUriMatch(){
+    public function ShouldReturnIdUriMatch()
+    {
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
@@ -112,7 +116,8 @@ final class RouterTest extends TestCase
     }
 
     /** @test */
-    public function ShouldReturnDifferentIdUriMatch(){
+    public function ShouldReturnDifferentIdUriMatch()
+    {
         $arrayUrls = array(
             "/get/{id}",
             "/post/{id}/{name}",
